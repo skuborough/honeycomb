@@ -1,12 +1,11 @@
 const KIT_TITLE = "Honeycomb";
-let $Id = (ID_NAME) => document.getElementById(ID_NAME);
+const HC_NUM = 5;
 let main = () => {
-    $Id("Title").appendChild(document.createTextNode(KIT_TITLE));
-    $Id("in").onclick = function() {
-        navigator.clipboard.readText().then((str) => ($Id("box").value = str));
+    U("Title").appendChild(document.createTextNode(KIT_TITLE));
+    U("in").onclick = () => {
+        G.getCB().then(RES => U("box").value = RES);
     };
-    $Id("out").onclick = function() {
-        $Id("box").select();
-        navigator.clipboard.writeText($Id("box").value);
+    U("out").onclick = () => {
+        G.setCB(U("box").value);
     };
 };
